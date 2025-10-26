@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import android.widget.ImageButton
+import android.widget.ScrollView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
@@ -14,7 +15,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var displayExpression: TextView
     private lateinit var displayResult: TextView
     private lateinit var basicLayout: ConstraintLayout
-    private lateinit var scientificLayout: ConstraintLayout
+    private lateinit var scientificLayout: ScrollView
     private lateinit var btnToggleScientific: ImageButton
 
     private var isScientificMode = false
@@ -38,7 +39,6 @@ class MainActivity : AppCompatActivity() {
         scientificLayout = findViewById(R.id.scientificLayout)
         btnToggleScientific = findViewById(R.id.btnToggleScientific)
 
-        // Initialize display
         displayExpression.text = "0"
         displayResult.text = ""
     }
@@ -57,7 +57,6 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setupBasicButtons() {
-        // Number buttons (0-9)
         val numberButtons = mapOf(
             R.id.btn0 to "0", R.id.btn1 to "1", R.id.btn2 to "2",
             R.id.btn3 to "3", R.id.btn4 to "4", R.id.btn5 to "5",
@@ -71,13 +70,11 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        // Operator buttons
         findViewById<Button>(R.id.btnAdd)?.setOnClickListener { appendToExpression("+") }
         findViewById<Button>(R.id.btnSubtract)?.setOnClickListener { appendToExpression("-") }
         findViewById<Button>(R.id.btnMultiply)?.setOnClickListener { appendToExpression("×") }
         findViewById<Button>(R.id.btnDivide)?.setOnClickListener { appendToExpression("÷") }
 
-        // Function buttons
         findViewById<Button>(R.id.btnAC)?.setOnClickListener { clearAll() }
         findViewById<Button>(R.id.btnDelete)?.setOnClickListener { deleteLastChar() }
         findViewById<Button>(R.id.btnPercent)?.setOnClickListener { calculatePercent() }
@@ -86,7 +83,6 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setupScientificButtons() {
-        // Only set up scientific buttons if they exist
         // Trigonometric functions
         findViewById<Button>(R.id.btnSin)?.setOnClickListener { appendFunction("sin(") }
         findViewById<Button>(R.id.btnCos)?.setOnClickListener { appendFunction("cos(") }
@@ -95,24 +91,24 @@ class MainActivity : AppCompatActivity() {
         findViewById<Button>(R.id.btnCosh)?.setOnClickListener { appendFunction("cosh(") }
         findViewById<Button>(R.id.btnTanh)?.setOnClickListener { appendFunction("tanh(") }
 
-        // Logarithmic functions
+        // Logarithmic
         findViewById<Button>(R.id.btnLn)?.setOnClickListener { appendFunction("ln(") }
         findViewById<Button>(R.id.btnLog)?.setOnClickListener { appendFunction("log(") }
 
-        // Power functions
+        // Power
         findViewById<Button>(R.id.btnPower2)?.setOnClickListener { appendToExpression("^2") }
         findViewById<Button>(R.id.btnPower3)?.setOnClickListener { appendToExpression("^3") }
         findViewById<Button>(R.id.btnPowerX)?.setOnClickListener { appendToExpression("^") }
         findViewById<Button>(R.id.btnPowerE)?.setOnClickListener { appendToExpression("e^") }
         findViewById<Button>(R.id.btnPower10)?.setOnClickListener { appendToExpression("10^") }
 
-        // Root functions
+        // Roots & inverse
         findViewById<Button>(R.id.btnSqrt)?.setOnClickListener { appendFunction("sqrt(") }
         findViewById<Button>(R.id.btnCbrt)?.setOnClickListener { appendFunction("cbrt(") }
         findViewById<Button>(R.id.btnRootX)?.setOnClickListener { appendToExpression("^(1/") }
         findViewById<Button>(R.id.btnInverse)?.setOnClickListener { calculateInverse() }
 
-        // Constants and special functions
+        // Constants & special
         findViewById<Button>(R.id.btnE)?.setOnClickListener { appendToExpression("e") }
         findViewById<Button>(R.id.btnPi)?.setOnClickListener { appendToExpression("π") }
         findViewById<Button>(R.id.btnFactorial)?.setOnClickListener { calculateFactorial() }
@@ -122,6 +118,12 @@ class MainActivity : AppCompatActivity() {
         // Parentheses
         findViewById<Button>(R.id.btnLeftParen)?.setOnClickListener { appendToExpression("(") }
         findViewById<Button>(R.id.btnRightParen)?.setOnClickListener { appendToExpression(")") }
+
+        // Duplicate basic functions (scientific layout only)
+        findViewById<Button>(R.id.btnDeleteSci)?.setOnClickListener { deleteLastChar() }
+        findViewById<Button>(R.id.btnACSci)?.setOnClickListener { clearAll() }
+        findViewById<Button>(R.id.btnPercentSci)?.setOnClickListener { calculatePercent() }
+        findViewById<Button>(R.id.btnDivideSci)?.setOnClickListener { appendToExpression("÷") }
     }
 
     private fun appendToExpression(value: String) {
@@ -158,66 +160,54 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun calculatePercent() {
-        if (currentExpression.isNotEmpty() && currentExpression != "0") {
-            try {
-                val value = evaluateExpression(currentExpression)
-                currentExpression = (value / 100).toString()
-                displayExpression.text = currentExpression
-                evaluateLive()
-            } catch (e: Exception) {
-                displayResult.text = "Error"
-            }
+        try {
+            val value = evaluateExpression(currentExpression)
+            currentExpression = (value / 100).toString()
+            displayExpression.text = currentExpression
+            evaluateLive()
+        } catch (e: Exception) {
+            displayResult.text = "Error"
         }
     }
 
     private fun toggleSign() {
-        if (currentExpression.isNotEmpty() && currentExpression != "0") {
-            try {
-                val value = evaluateExpression(currentExpression)
-                currentExpression = (-value).toString()
-                displayExpression.text = currentExpression
-                evaluateLive()
-            } catch (e: Exception) {
-                displayResult.text = "Error"
-            }
+        try {
+            val value = evaluateExpression(currentExpression)
+            currentExpression = (-value).toString()
+            displayExpression.text = currentExpression
+            evaluateLive()
+        } catch (e: Exception) {
+            displayResult.text = "Error"
         }
     }
 
     private fun calculateInverse() {
-        if (currentExpression.isNotEmpty() && currentExpression != "0") {
-            try {
-                val value = evaluateExpression(currentExpression)
-                if (value != 0.0) {
-                    currentExpression = (1.0 / value).toString()
-                    displayExpression.text = currentExpression
-                    evaluateLive()
-                } else {
-                    displayResult.text = "Error"
-                }
-            } catch (e: Exception) {
+        try {
+            val value = evaluateExpression(currentExpression)
+            if (value != 0.0) {
+                currentExpression = (1.0 / value).toString()
+                displayExpression.text = currentExpression
+                evaluateLive()
+            } else {
                 displayResult.text = "Error"
             }
+        } catch (e: Exception) {
+            displayResult.text = "Error"
         }
     }
 
     private fun calculateFactorial() {
-        if (currentExpression.isNotEmpty() && currentExpression != "0") {
-            try {
-                val value = evaluateExpression(currentExpression).toInt()
-                if (value >= 0 && value <= 20) {
-                    var result = 1L
-                    for (i in 2..value) {
-                        result *= i
-                    }
-                    currentExpression = result.toString()
-                    displayExpression.text = currentExpression
-                    evaluateLive()
-                } else {
-                    displayResult.text = "Error"
-                }
-            } catch (e: Exception) {
-                displayResult.text = "Error"
-            }
+        try {
+            val value = evaluateExpression(currentExpression).toInt()
+            if (value in 0..20) {
+                var result = 1L
+                for (i in 2..value) result *= i
+                currentExpression = result.toString()
+                displayExpression.text = currentExpression
+                evaluateLive()
+            } else displayResult.text = "Error"
+        } catch (e: Exception) {
+            displayResult.text = "Error"
         }
     }
 
@@ -233,18 +223,16 @@ class MainActivity : AppCompatActivity() {
             displayResult.text = ""
             return
         }
-
         try {
             val result = evaluateExpression(currentExpression)
             displayResult.text = formatResult(result)
-        } catch (e: Exception) {
+        } catch (_: Exception) {
             displayResult.text = ""
         }
     }
 
     private fun calculateResult() {
         if (currentExpression.isEmpty() || currentExpression == "0") return
-
         try {
             val result = evaluateExpression(currentExpression)
             lastResult = formatResult(result)
@@ -263,33 +251,23 @@ class MainActivity : AppCompatActivity() {
             .replace("π", Math.PI.toString())
             .replace("e", Math.E.toString())
 
-        // Remove any trailing operators
         while (expression.isNotEmpty() && expression.last() in "+-*/^") {
             expression = expression.dropLast(1)
         }
 
-        if (expression.isEmpty()) {
-            return 0.0
-        }
-
+        if (expression.isEmpty()) return 0.0
         return ExpressionBuilder(expression).build().evaluate()
     }
 
     private fun formatResult(result: Double): String {
         return when {
             result.isNaN() || result.isInfinite() -> "Error"
-            result % 1.0 == 0.0 && Math.abs(result) < 1e10 -> {
+            result % 1.0 == 0.0 && Math.abs(result) < 1e10 ->
                 result.toLong().toString()
-            }
-            Math.abs(result) < 1e-6 || Math.abs(result) >= 1e10 -> {
+            Math.abs(result) < 1e-6 || Math.abs(result) >= 1e10 ->
                 String.format("%.6e", result)
-            }
-            else -> {
-                val formatted = String.format("%.10f", result)
-                    .trimEnd('0')
-                    .trimEnd('.')
-                formatted
-            }
+            else ->
+                String.format("%.10f", result).trimEnd('0').trimEnd('.')
         }
     }
 }

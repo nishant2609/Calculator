@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -11,175 +10,145 @@
         android:layout_height="wrap_content"
         android:padding="8dp">
 
-        <!-- Row 1: (, ), mc, m+, m-, mr -->
+        <!-- Row 1 -->
         <Button android:id="@+id/btnLeftParen" style="@style/ButtonFunction" android:text="("
-            app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/btnRightParen" app:layout_constraintWidth_percent="0.15" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"/>
         <Button android:id="@+id/btnRightParen" style="@style/ButtonFunction" android:text=")"
-            app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toEndOf="@id/btnLeftParen"
-            app:layout_constraintEnd_toStartOf="@id/btnMC" app:layout_constraintWidth_percent="0.15" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toEndOf="@id/btnLeftParen"/>
         <Button android:id="@+id/btnMC" style="@style/ButtonFunction" android:text="mc"
-            app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toEndOf="@id/btnRightParen"
-            app:layout_constraintEnd_toStartOf="@id/btnMPlus" app:layout_constraintWidth_percent="0.15" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toEndOf="@id/btnRightParen"/>
         <Button android:id="@+id/btnMPlus" style="@style/ButtonFunction" android:text="m+"
-            app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toEndOf="@id/btnMC"
-            app:layout_constraintEnd_toStartOf="@id/btnMMinus" app:layout_constraintWidth_percent="0.15" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toEndOf="@id/btnMC"/>
         <Button android:id="@+id/btnMMinus" style="@style/ButtonFunction" android:text="m-"
-            app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toEndOf="@id/btnMPlus"
-            app:layout_constraintEnd_toStartOf="@id/btnMR" app:layout_constraintWidth_percent="0.15" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toEndOf="@id/btnMPlus"/>
         <Button android:id="@+id/btnMR" style="@style/ButtonFunction" android:text="mr"
-            app:layout_constraintTop_toTopOf="parent" app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintWidth_percent="0.15" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toEndOf="@id/btnMMinus"/>
 
-        <!-- Row 2: 2nd, x², x³, xʸ, eˣ, 10ˣ -->
-        <Button android:id="@+id/btn2nd" style="@style/ButtonFunction" android:text="2ⁿᵈ"
-            app:layout_constraintTop_toBottomOf="@id/btnLeftParen" app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/btnPower2" app:layout_constraintWidth_percent="0.15" android:layout_marginTop="8dp" />
+        <!-- Row 2 -->
         <Button android:id="@+id/btnPower2" style="@style/ButtonFunction" android:text="x²"
-            app:layout_constraintTop_toBottomOf="@id/btnRightParen" app:layout_constraintStart_toEndOf="@id/btn2nd"
-            app:layout_constraintEnd_toStartOf="@id/btnPower3" app:layout_constraintWidth_percent="0.15" android:layout_marginTop="8dp" />
+            app:layout_constraintTop_toBottomOf="@id/btnLeftParen"
+            android:layout_marginTop="8dp"
+            app:layout_constraintStart_toStartOf="parent"/>
         <Button android:id="@+id/btnPower3" style="@style/ButtonFunction" android:text="x³"
-            app:layout_constraintTop_toBottomOf="@id/btnMC" app:layout_constraintStart_toEndOf="@id/btnPower2"
-            app:layout_constraintEnd_toStartOf="@id/btnPowerX" app:layout_constraintWidth_percent="0.15" android:layout_marginTop="8dp" />
+            app:layout_constraintTop_toBottomOf="@id/btnRightParen"
+            app:layout_constraintStart_toEndOf="@id/btnPower2"
+            android:layout_marginTop="8dp"/>
         <Button android:id="@+id/btnPowerX" style="@style/ButtonFunction" android:text="xʸ"
-            app:layout_constraintTop_toBottomOf="@id/btnMPlus" app:layout_constraintStart_toEndOf="@id/btnPower3"
-            app:layout_constraintEnd_toStartOf="@id/btnPowerE" app:layout_constraintWidth_percent="0.15" android:layout_marginTop="8dp" />
+            app:layout_constraintTop_toBottomOf="@id/btnMC"
+            app:layout_constraintStart_toEndOf="@id/btnPower3"
+            android:layout_marginTop="8dp"/>
         <Button android:id="@+id/btnPowerE" style="@style/ButtonFunction" android:text="eˣ"
-            app:layout_constraintTop_toBottomOf="@id/btnMMinus" app:layout_constraintStart_toEndOf="@id/btnPowerX"
-            app:layout_constraintEnd_toStartOf="@id/btnPower10" app:layout_constraintWidth_percent="0.15" android:layout_marginTop="8dp" />
+            app:layout_constraintTop_toBottomOf="@id/btnMPlus"
+            app:layout_constraintStart_toEndOf="@id/btnPowerX"
+            android:layout_marginTop="8dp"/>
         <Button android:id="@+id/btnPower10" style="@style/ButtonFunction" android:text="10ˣ"
-            app:layout_constraintTop_toBottomOf="@id/btnMR" app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintWidth_percent="0.15" android:layout_marginTop="8dp" />
+            app:layout_constraintTop_toBottomOf="@id/btnMMinus"
+            app:layout_constraintStart_toEndOf="@id/btnPowerE"
+            android:layout_marginTop="8dp"/>
 
-        <!-- Row 3: 1/x, ²√x, ³√x, ʸ√x, ln, log₁₀ -->
+        <!-- Row 3 -->
         <Button android:id="@+id/btnInverse" style="@style/ButtonFunction" android:text="1/x"
-            app:layout_constraintTop_toBottomOf="@id/btn2nd" app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/btnSqrt" app:layout_constraintWidth_percent="0.15" android:layout_marginTop="8dp" />
-        <Button android:id="@+id/btnSqrt" style="@style/ButtonFunction" android:text="²√x"
-            app:layout_constraintTop_toBottomOf="@id/btnPower2" app:layout_constraintStart_toEndOf="@id/btnInverse"
-            app:layout_constraintEnd_toStartOf="@id/btnCbrt" app:layout_constraintWidth_percent="0.15" android:layout_marginTop="8dp" />
+            app:layout_constraintTop_toBottomOf="@id/btnPower2"
+            android:layout_marginTop="8dp"
+            app:layout_constraintStart_toStartOf="parent"/>
+        <Button android:id="@+id/btnSqrt" style="@style/ButtonFunction" android:text="√x"
+            app:layout_constraintTop_toBottomOf="@id/btnPower3"
+            app:layout_constraintStart_toEndOf="@id/btnInverse"
+            android:layout_marginTop="8dp"/>
         <Button android:id="@+id/btnCbrt" style="@style/ButtonFunction" android:text="³√x"
-            app:layout_constraintTop_toBottomOf="@id/btnPower3" app:layout_constraintStart_toEndOf="@id/btnSqrt"
-            app:layout_constraintEnd_toStartOf="@id/btnRootX" app:layout_constraintWidth_percent="0.15" android:layout_marginTop="8dp" />
+            app:layout_constraintTop_toBottomOf="@id/btnPowerX"
+            app:layout_constraintStart_toEndOf="@id/btnSqrt"
+            android:layout_marginTop="8dp"/>
         <Button android:id="@+id/btnRootX" style="@style/ButtonFunction" android:text="ʸ√x"
-            app:layout_constraintTop_toBottomOf="@id/btnPowerX" app:layout_constraintStart_toEndOf="@id/btnCbrt"
-            app:layout_constraintEnd_toStartOf="@id/btnLn" app:layout_constraintWidth_percent="0.15" android:layout_marginTop="8dp" />
-        <Button android:id="@+id/btnLn" style="@style/ButtonFunction" android:text="ln"
-            app:layout_constraintTop_toBottomOf="@id/btnPowerE" app:layout_constraintStart_toEndOf="@id/btnRootX"
-            app:layout_constraintEnd_toStartOf="@id/btnLog" app:layout_constraintWidth_percent="0.15" android:layout_marginTop="8dp" />
-        <Button android:id="@+id/btnLog" style="@style/ButtonFunction" android:text="log₁₀"
-            app:layout_constraintTop_toBottomOf="@id/btnPower10" app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintWidth_percent="0.15" android:layout_marginTop="8dp" />
+            app:layout_constraintTop_toBottomOf="@id/btnPowerE"
+            app:layout_constraintStart_toEndOf="@id/btnCbrt"
+            android:layout_marginTop="8dp"/>
+        <Button android:id="@+id/btnLog" style="@style/ButtonFunction" android:text="log"
+            app:layout_constraintTop_toBottomOf="@id/btnPower10"
+            app:layout_constraintStart_toEndOf="@id/btnRootX"
+            android:layout_marginTop="8dp"/>
 
-        <!-- Row 4: x!, sin, cos, tan, e, EE -->
-        <Button android:id="@+id/btnFactorial" style="@style/ButtonFunction" android:text="x!"
-            app:layout_constraintTop_toBottomOf="@id/btnInverse" app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/btnSin" app:layout_constraintWidth_percent="0.15" android:layout_marginTop="8dp" />
+        <!-- Row 4 -->
         <Button android:id="@+id/btnSin" style="@style/ButtonFunction" android:text="sin"
-            app:layout_constraintTop_toBottomOf="@id/btnSqrt" app:layout_constraintStart_toEndOf="@id/btnFactorial"
-            app:layout_constraintEnd_toStartOf="@id/btnCos" app:layout_constraintWidth_percent="0.15" android:layout_marginTop="8dp" />
+            app:layout_constraintTop_toBottomOf="@id/btnInverse"
+            android:layout_marginTop="8dp"
+            app:layout_constraintStart_toStartOf="parent"/>
         <Button android:id="@+id/btnCos" style="@style/ButtonFunction" android:text="cos"
-            app:layout_constraintTop_toBottomOf="@id/btnCbrt" app:layout_constraintStart_toEndOf="@id/btnSin"
-            app:layout_constraintEnd_toStartOf="@id/btnTan" app:layout_constraintWidth_percent="0.15" android:layout_marginTop="8dp" />
+            app:layout_constraintTop_toBottomOf="@id/btnSqrt"
+            app:layout_constraintStart_toEndOf="@id/btnSin"
+            android:layout_marginTop="8dp"/>
         <Button android:id="@+id/btnTan" style="@style/ButtonFunction" android:text="tan"
-            app:layout_constraintTop_toBottomOf="@id/btnRootX" app:layout_constraintStart_toEndOf="@id/btnCos"
-            app:layout_constraintEnd_toStartOf="@id/btnE" app:layout_constraintWidth_percent="0.15" android:layout_marginTop="8dp" />
-        <Button android:id="@+id/btnE" style="@style/ButtonFunction" android:text="e"
-            app:layout_constraintTop_toBottomOf="@id/btnLn" app:layout_constraintStart_toEndOf="@id/btnTan"
-            app:layout_constraintEnd_toStartOf="@id/btnEE" app:layout_constraintWidth_percent="0.15" android:layout_marginTop="8dp" />
-        <Button android:id="@+id/btnEE" style="@style/ButtonFunction" android:text="EE"
-            app:layout_constraintTop_toBottomOf="@id/btnLog" app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintWidth_percent="0.15" android:layout_marginTop="8dp" />
-
-        <!-- Row 5: Rand, sinh, cosh, tanh, π, Rad -->
-        <Button android:id="@+id/btnRand" style="@style/ButtonFunction" android:text="Rand"
-            app:layout_constraintTop_toBottomOf="@id/btnFactorial" app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/btnSinh" app:layout_constraintWidth_percent="0.15" android:layout_marginTop="8dp" />
+            app:layout_constraintTop_toBottomOf="@id/btnCbrt"
+            app:layout_constraintStart_toEndOf="@id/btnCos"
+            android:layout_marginTop="8dp"/>
         <Button android:id="@+id/btnSinh" style="@style/ButtonFunction" android:text="sinh"
-            app:layout_constraintTop_toBottomOf="@id/btnSin" app:layout_constraintStart_toEndOf="@id/btnRand"
-            app:layout_constraintEnd_toStartOf="@id/btnCosh" app:layout_constraintWidth_percent="0.15" android:layout_marginTop="8dp" />
+            app:layout_constraintTop_toBottomOf="@id/btnRootX"
+            app:layout_constraintStart_toEndOf="@id/btnTan"
+            android:layout_marginTop="8dp"/>
         <Button android:id="@+id/btnCosh" style="@style/ButtonFunction" android:text="cosh"
-            app:layout_constraintTop_toBottomOf="@id/btnCos" app:layout_constraintStart_toEndOf="@id/btnSinh"
-            app:layout_constraintEnd_toStartOf="@id/btnTanh" app:layout_constraintWidth_percent="0.15" android:layout_marginTop="8dp" />
+            app:layout_constraintTop_toBottomOf="@id/btnLog"
+            app:layout_constraintStart_toEndOf="@id/btnSinh"
+            android:layout_marginTop="8dp"/>
+
+        <!-- Row 5 -->
         <Button android:id="@+id/btnTanh" style="@style/ButtonFunction" android:text="tanh"
-            app:layout_constraintTop_toBottomOf="@id/btnTan" app:layout_constraintStart_toEndOf="@id/btnCosh"
-            app:layout_constraintEnd_toStartOf="@id/btnPi" app:layout_constraintWidth_percent="0.15" android:layout_marginTop="8dp" />
+            app:layout_constraintTop_toBottomOf="@id/btnSin"
+            android:layout_marginTop="8dp"
+            app:layout_constraintStart_toStartOf="parent"/>
+        <Button android:id="@+id/btnE" style="@style/ButtonFunction" android:text="e"
+            app:layout_constraintTop_toBottomOf="@id/btnCos"
+            app:layout_constraintStart_toEndOf="@id/btnTanh"
+            android:layout_marginTop="8dp"/>
         <Button android:id="@+id/btnPi" style="@style/ButtonFunction" android:text="π"
-            app:layout_constraintTop_toBottomOf="@id/btnE" app:layout_constraintStart_toEndOf="@id/btnTanh"
-            app:layout_constraintEnd_toStartOf="@id/btnRad" app:layout_constraintWidth_percent="0.15" android:layout_marginTop="8dp" />
+            app:layout_constraintTop_toBottomOf="@id/btnTan"
+            app:layout_constraintStart_toEndOf="@id/btnE"
+            android:layout_marginTop="8dp"/>
+        <Button android:id="@+id/btnEE" style="@style/ButtonFunction" android:text="EE"
+            app:layout_constraintTop_toBottomOf="@id/btnSinh"
+            app:layout_constraintStart_toEndOf="@id/btnPi"
+            android:layout_marginTop="8dp"/>
+        <Button android:id="@+id/btnFactorial" style="@style/ButtonFunction" android:text="x!"
+            app:layout_constraintTop_toBottomOf="@id/btnCosh"
+            app:layout_constraintStart_toEndOf="@id/btnEE"
+            android:layout_marginTop="8dp"/>
+
+        <!-- Row 6 -->
+        <Button android:id="@+id/btnRand" style="@style/ButtonFunction" android:text="Rand"
+            app:layout_constraintTop_toBottomOf="@id/btnTanh"
+            android:layout_marginTop="8dp"
+            app:layout_constraintStart_toStartOf="parent"/>
+        <Button android:id="@+id/btnLn" style="@style/ButtonFunction" android:text="ln"
+            app:layout_constraintTop_toBottomOf="@id/btnE"
+            app:layout_constraintStart_toEndOf="@id/btnRand"
+            android:layout_marginTop="8dp"/>
         <Button android:id="@+id/btnRad" style="@style/ButtonFunction" android:text="Rad"
-            app:layout_constraintTop_toBottomOf="@id/btnEE" app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintWidth_percent="0.15" android:layout_marginTop="8dp" />
+            app:layout_constraintTop_toBottomOf="@id/btnPi"
+            app:layout_constraintStart_toEndOf="@id/btnLn"
+            android:layout_marginTop="8dp"/>
 
-        <!-- Row 6: Delete, AC, %, ÷ -->
-        <Button android:id="@+id/btnDelete" style="@style/ButtonFunction" android:text="⌫"
-            app:layout_constraintTop_toBottomOf="@id/btnRand" app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/btnAC" app:layout_constraintWidth_percent="0.23" android:layout_marginTop="12dp" />
-        <Button android:id="@+id/btnAC" style="@style/ButtonFunction" android:text="AC"
-            app:layout_constraintTop_toBottomOf="@id/btnSinh" app:layout_constraintStart_toEndOf="@id/btnDelete"
-            app:layout_constraintEnd_toStartOf="@id/btnPercent" app:layout_constraintWidth_percent="0.23" android:layout_marginTop="12dp" />
-        <Button android:id="@+id/btnPercent" style="@style/ButtonFunction" android:text="%"
-            app:layout_constraintTop_toBottomOf="@id/btnTanh" app:layout_constraintStart_toEndOf="@id/btnAC"
-            app:layout_constraintEnd_toStartOf="@id/btnDivide" app:layout_constraintWidth_percent="0.23" android:layout_marginTop="12dp" />
-        <Button android:id="@+id/btnDivide" style="@style/ButtonOperator" android:text="÷"
-            app:layout_constraintTop_toBottomOf="@id/btnRad" app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintWidth_percent="0.23" android:layout_marginTop="12dp" />
-
-        <!-- Row 7: 7, 8, 9, × -->
-        <Button android:id="@+id/btn7" style="@style/ButtonNumber" android:text="7"
-            app:layout_constraintTop_toBottomOf="@id/btnDelete" app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/btn8" app:layout_constraintWidth_percent="0.23" android:layout_marginTop="12dp" />
-        <Button android:id="@+id/btn8" style="@style/ButtonNumber" android:text="8"
-            app:layout_constraintTop_toBottomOf="@id/btnAC" app:layout_constraintStart_toEndOf="@id/btn7"
-            app:layout_constraintEnd_toStartOf="@id/btn9" app:layout_constraintWidth_percent="0.23" android:layout_marginTop="12dp" />
-        <Button android:id="@+id/btn9" style="@style/ButtonNumber" android:text="9"
-            app:layout_constraintTop_toBottomOf="@id/btnPercent" app:layout_constraintStart_toEndOf="@id/btn8"
-            app:layout_constraintEnd_toStartOf="@id/btnMultiply" app:layout_constraintWidth_percent="0.23" android:layout_marginTop="12dp" />
-        <Button android:id="@+id/btnMultiply" style="@style/ButtonOperator" android:text="×"
-            app:layout_constraintTop_toBottomOf="@id/btnDivide" app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintWidth_percent="0.23" android:layout_marginTop="12dp" />
-
-        <!-- Row 8: 4, 5, 6, - -->
-        <Button android:id="@+id/btn4" style="@style/ButtonNumber" android:text="4"
-            app:layout_constraintTop_toBottomOf="@id/btn7" app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/btn5" app:layout_constraintWidth_percent="0.23" android:layout_marginTop="12dp" />
-        <Button android:id="@+id/btn5" style="@style/ButtonNumber" android:text="5"
-            app:layout_constraintTop_toBottomOf="@id/btn8" app:layout_constraintStart_toEndOf="@id/btn4"
-            app:layout_constraintEnd_toStartOf="@id/btn6" app:layout_constraintWidth_percent="0.23" android:layout_marginTop="12dp" />
-        <Button android:id="@+id/btn6" style="@style/ButtonNumber" android:text="6"
-            app:layout_constraintTop_toBottomOf="@id/btn9" app:layout_constraintStart_toEndOf="@id/btn5"
-            app:layout_constraintEnd_toStartOf="@id/btnSubtract" app:layout_constraintWidth_percent="0.23" android:layout_marginTop="12dp" />
-        <Button android:id="@+id/btnSubtract" style="@style/ButtonOperator" android:text="−"
-            app:layout_constraintTop_toBottomOf="@id/btnMultiply" app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintWidth_percent="0.23" android:layout_marginTop="12dp" />
-
-        <!-- Row 9: 1, 2, 3, + -->
-        <Button android:id="@+id/btn1" style="@style/ButtonNumber" android:text="1"
-            app:layout_constraintTop_toBottomOf="@id/btn4" app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/btn2" app:layout_constraintWidth_percent="0.23" android:layout_marginTop="12dp" />
-        <Button android:id="@+id/btn2" style="@style/ButtonNumber" android:text="2"
-            app:layout_constraintTop_toBottomOf="@id/btn5" app:layout_constraintStart_toEndOf="@id/btn1"
-            app:layout_constraintEnd_toStartOf="@id/btn3" app:layout_constraintWidth_percent="0.23" android:layout_marginTop="12dp" />
-        <Button android:id="@+id/btn3" style="@style/ButtonNumber" android:text="3"
-            app:layout_constraintTop_toBottomOf="@id/btn6" app:layout_constraintStart_toEndOf="@id/btn2"
-            app:layout_constraintEnd_toStartOf="@id/btnAdd" app:layout_constraintWidth_percent="0.23" android:layout_marginTop="12dp" />
-        <Button android:id="@+id/btnAdd" style="@style/ButtonOperator" android:text="+"
-            app:layout_constraintTop_toBottomOf="@id/btnSubtract" app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintWidth_percent="0.23" android:layout_marginTop="12dp" />
-
-        <!-- Row 10: +/-, 0, ., = -->
-        <Button android:id="@+id/btnPlusMinus" style="@style/ButtonNumber" android:text="+/-"
-            app:layout_constraintTop_toBottomOf="@id/btn1" app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/btn0" app:layout_constraintWidth_percent="0.23" android:layout_marginTop="12dp" />
-        <Button android:id="@+id/btn0" style="@style/ButtonNumber" android:text="0"
-            app:layout_constraintTop_toBottomOf="@id/btn2" app:layout_constraintStart_toEndOf="@id/btnPlusMinus"
-            app:layout_constraintEnd_toStartOf="@id/btnDot" app:layout_constraintWidth_percent="0.23" android:layout_marginTop="12dp" />
-        <Button android:id="@+id/btnDot" style="@style/ButtonNumber" android:text="."
-            app:layout_constraintTop_toBottomOf="@id/btn3" app:layout_constraintStart_toEndOf="@id/btn0"
-            app:layout_constraintEnd_toStartOf="@id/btnEquals" app:layout_constraintWidth_percent="0.23" android:layout_marginTop="12dp" />
-        <Button android:id="@+id/btnEquals" style="@style/ButtonOperator" android:text="="
-            app:layout_constraintTop_toBottomOf="@id/btnAdd" app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintWidth_percent="0.23" android:layout_marginTop="12dp" />
+        <!-- Row 7: delete/AC/%/÷ -->
+        <Button android:id="@+id/btnDeleteSci" style="@style/ButtonFunction" android:text="⌫"
+            app:layout_constraintTop_toBottomOf="@id/btnRand"
+            android:layout_marginTop="12dp"
+            app:layout_constraintStart_toStartOf="parent"/>
+        <Button android:id="@+id/btnACSci" style="@style/ButtonFunction" android:text="AC"
+            app:layout_constraintTop_toBottomOf="@id/btnLn"
+            app:layout_constraintStart_toEndOf="@id/btnDeleteSci"
+            android:layout_marginTop="12dp"/>
+        <Button android:id="@+id/btnPercentSci" style="@style/ButtonFunction" android:text="%"
+            app:layout_constraintTop_toBottomOf="@id/btnRad"
+            app:layout_constraintStart_toEndOf="@id/btnACSci"
+            android:layout_marginTop="12dp"/>
+        <Button android:id="@+id/btnDivideSci" style="@style/ButtonOperator" android:text="÷"
+            app:layout_constraintTop_toBottomOf="@id/btnPercentSci"
+            app:layout_constraintStart_toEndOf="@id/btnPercentSci"
+            android:layout_marginTop="12dp"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
